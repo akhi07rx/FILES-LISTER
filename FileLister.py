@@ -30,6 +30,8 @@ with open(csv_file_path, "w", newline="") as f:
     for file_name in file_names:
         writer.writerow([file_name])
 
+print("")
 print("Task successful")
 print("Text file saved at:", text_file_path)
 print("CSV file saved at:", csv_file_path)
+print("")
