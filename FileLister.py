@@ -10,13 +10,18 @@ total_files = len(file_names)
 text_file_name = folder_name + ".txt"
 csv_file_name = folder_name + ".csv"
 
-with open(os.path.join(os.environ["USERPROFILE"], "Desktop", text_file_name), "w") as f:
+text_file_path = os.path.join(
+    os.environ["USERPROFILE"], "Desktop", text_file_name)
+csv_file_path = os.path.join(
+    os.environ["USERPROFILE"], "Desktop", csv_file_name)
+
+with open(text_file_path, "w") as f:
     f.write(f"Folder: {folder_name}\n")
     f.write(f"Total Files: {total_files}\n\n")
     for file_name in file_names:
         f.write(file_name + "\n")
 
-with open(os.path.join(os.environ["USERPROFILE"], "Desktop", csv_file_name), "w", newline="") as f:
+with open(csv_file_path, "w", newline="") as f:
     writer = csv.writer(f)
     writer.writerow(["Folder", folder_name])
     writer.writerow(["Total Files", total_files])
@@ -26,3 +31,5 @@ with open(os.path.join(os.environ["USERPROFILE"], "Desktop", csv_file_name), "w"
         writer.writerow([file_name])
 
 print("Task successful")
+print("Text file saved at:", text_file_path)
+print("CSV file saved at:", csv_file_path)
